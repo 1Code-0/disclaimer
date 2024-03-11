@@ -7,5 +7,12 @@
 		/>
 		<link rel="stylesheet" href="style.css"/>
 	</head>
-	<body></body>
+	<body>
+		<div id="content"></div>
+		<script type="module">
+			import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+			document.getElementById('content').innerHTML =
+			marked.parse(await ((await fetch('README.md')).text()));
+		</script>
+	</body>
 </html>
